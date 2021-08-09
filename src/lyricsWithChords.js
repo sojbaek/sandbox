@@ -136,7 +136,7 @@ LyricsWithChords.prototype.readChordFromString = function(str) {
         if (lnth > 1) {
             var token= str.slice(idFrom[x]+1, idTo[x])
             if (checkChord(token)) {
-                console.log("token=" + token)
+        //        console.log("token=" + token)
                 this.chords.push(new Chord(token, idFrom[x]+1, idTo[x]-1))
                 this.chordsUsed.add(token)
             }
@@ -149,12 +149,12 @@ LyricsWithChords.prototype.transposeChord = function(ch, diff,isMinor) {
     var newlabel = ""+ch.label
     var pos = 0
   //  var lastpos = 0
-    console.log("ch={%s}, diff={%s}, isMinor={%s}\n", ch, diff, isMinor)
+    //console.log("ch={%s}, diff={%s}, isMinor={%s}\n", ch, diff, isMinor)
     for (const x of chordkeys.keys()) {
         var newpos=newlabel.indexOf(chordkeys[x],pos = pos)
         var newkeyval=(noteDic[chordkeys[x]]+diff+12)%12
         var newkey = isMinor ?  minornoteArray[newkeyval] : majornoteArray[newkeyval]
-        console.log("diff="+ diff)
+      //  console.log("diff="+ diff)
         newlabel = newlabel.substr(0,newpos)+newkey+newlabel.substr(newpos+chordkeys[x].length);
         pos = newpos + newkey.length
     }
@@ -189,7 +189,7 @@ LyricsWithChords.prototype.transpose = function(offset) {
     this.chords.forEach(chord => {
         var newchord = LyricsWithChords.prototype.transposeChord(chord, offset,this.isminor)
         var addendum
-        console.log("this.lyric=" + this.lyric)
+     //   console.log("this.lyric=" + this.lyric)
         var fillin = this.lyric.substring(pos, chord.from)
         var hasReturn = fillin.indexOf("\n")
         if (hasReturn == -1) {
