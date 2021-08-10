@@ -24,24 +24,43 @@ const TransposeForm = props => {
       </form>
     );
 }
+//  <Form>
+//    <Form.Group>
+//      <Form.Label>Lyrics:</Form.Label>
+//      <Form.Control type="email" placeholder="Example@email.com" />
+//      <Form.Text className="text-muted">
+
+//      </Form.Text>
+//    </Form.Group>
+//  </Form>
 
 function Lyrics(props) {
   return (
-  <Form>
-    <Form.Group>
-      <Form.Label>Lyrics:</Form.Label>
-      <Form.Control type="email" placeholder="Example@email.com" />
-      <Form.Text className="text-muted">
-      {props.text.map(line => {
-        return (
-          <div className="d-flex justify-content-start">{line}</div>
-        )
-      })}
-      </Form.Text>
-    </Form.Group>
-  </Form>
+    <span>
+      <pre>
+         { props.text.join('\n')}
+      </pre>
+    </span>
   );
 }
+
+
+// function Lyrics(props) {
+//   return (
+//       <div class="mb-3">
+//         <left>
+//         <div className="d-flex justify-content-start"><pre>
+//       {props.text.map(line => {
+//         return (
+//           // {line}</div>
+//            {line}<br/>
+//         )
+//       })}
+//       </pre></div>
+//       </left>
+//         </div>
+//   );
+// }
 
 function App() {
 
